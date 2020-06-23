@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "kAsxI5BNeyE6CQ7B3YzOCLym7zcs1pi6HqZsbr7fA1GHg5L8O9cDQHPQtzA4VCdwG+kjLPBXTgvYOqwWcolrvQ==",
+  "success": true,
+  "projectFilePath": "D:\\VS_Progs\\Core\\TestCoreApi\\Models\\Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nikki\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Nikki\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

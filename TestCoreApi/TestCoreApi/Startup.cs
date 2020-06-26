@@ -29,6 +29,18 @@ namespace TestCoreApi
             services.AddControllers();
             services.RegisterServices();
 
+            services.AddMvc().AddJsonOptions(o =>
+            {
+                o.JsonSerializerOptions.PropertyNamingPolicy = null;
+                o.JsonSerializerOptions.DictionaryKeyPolicy = null;
+            });           
+
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowAccess", opt => opt.WithOrigins("http://localhost:4200", "http://localhost:4202")
+                .WithHeaders("Authorization", "Content-Type", "CustomHeader").AllowCredentials().AllowAnyMethod());
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo() { Title = "Test Core App Demo", Version = "1.0" });
@@ -70,10 +82,12 @@ namespace TestCoreApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(options => options.WithOrigins("http://localhost:4200", "http://localhost:4202").WithHeaders("Authorization", "Content-Type", "CustomHeader").AllowCredentials().AllowAnyMethod());
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger Movies Demo V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger TestCoreApp Demo V1");
             });
 
             app.UseRouting();
